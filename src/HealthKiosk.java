@@ -31,5 +31,24 @@ public class HealthKiosk {
         char shiftedLetter;
 
 
+        //Task 1
+        // allowing user input to determine service
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter service code (P/L/T/C): ");
+        service = input.next().charAt(0);
+        kindOfService = Character.toUpperCase(service);
+
+
+        if (kindOfService == 'P') {
+            summary = "PHARMACY";
+        } else if (kindOfService == 'T') {
+            summary = "TRIAGE";
+        } else if (kindOfService == 'L') {
+            summary = "LAB";
+        } else if (kindOfService == 'C') {
+            summary = "COUNSELLING";
+        }
+
+
     }
 }
