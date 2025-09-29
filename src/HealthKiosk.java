@@ -120,9 +120,9 @@ public class HealthKiosk {
                 roundedAngle =  Math.round( convertAngle * 1000) / 1000.0;
                 sinOfAngle=Math.sin(roundedAngle);
                 cosOfAngle=Math.cos(roundedAngle);
-                System.out.printf("Angle (radians): %.3f%n", roundedAngle);
-                System.out.printf("sin = %.3f%n", sinOfAngle);
-                System.out.printf("cos = %.3f%n", cosOfAngle);
+                System.out.printf("Angle (radians) : %.3f%n", roundedAngle);
+                System.out.printf("sin : %.3f%n", sinOfAngle);
+                System.out.printf("cos : %.3f%n", cosOfAngle);
                 metric=Math.round((float)sinOfAngle*100);
 
             }
