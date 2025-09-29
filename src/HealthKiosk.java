@@ -24,8 +24,8 @@ public class HealthKiosk {
         int number2;
         int number3;
         int number4;
-        String summary ="";
-        String ID ;
+        String summary = "";
+        String ID;
         String firstName;
         char baseCode;
         char shiftedLetter;
@@ -112,7 +112,7 @@ public class HealthKiosk {
 
             // TASK 3
             // generating a random letter and four random numbers to create a short code
-            randomLetter = (char)  ('A' + (int) (Math.random() * 26));
+            randomLetter = (char) ('A' + (int) (Math.random() * 26));
             number1 = (int) (Math.random() * (9 - 3 + 1) + 3);
             number2 = (int) (Math.random() * (9 - 3 + 1) + 3);
             number3 = (int) (Math.random() * (9 - 3 + 1) + 3);
@@ -120,15 +120,32 @@ public class HealthKiosk {
 
             ID = "" + randomLetter + number1 + number2 + number3 + number4;
 
-            if (ID.length()==5 && Character.isLetter(ID.charAt(0)) && Character.isDigit(ID.charAt(1)) && Character.isDigit(ID.charAt(2)) && Character.isDigit(ID.charAt(3)) && Character.isDigit(ID.charAt(4))) {
+            if (ID.length() == 5 && Character.isLetter(ID.charAt(0)) && Character.isDigit(ID.charAt(1)) && Character.isDigit(ID.charAt(2)) && Character.isDigit(ID.charAt(3)) && Character.isDigit(ID.charAt(4))) {
                 System.out.println("ID OK");
-            }else{
+            } else {
                 System.out.println("Invalid: first char must be a letter, the last four must be digits and the length must be 5");
             }
+
+
+
+            //TASK 4
+            // Allowing user input and generating a code for the user
+            System.out.println(" ");
+            System.out.println("Enter your first name:");
+            input.nextLine();
+            firstName = input.nextLine();
+
+            char baseCode = Character.toUpperCase(firstName.charAt(0));
+            char shiftedLetter = (char) ('A' + (baseCode - 'A' + 2) % 26);
+            String lastTwo = ID.substring(ID.length() - 2);
+            String Code = shiftedLetter + lastTwo + "-";
+
+
 
 
 
 
 
         }
+    }
 }
