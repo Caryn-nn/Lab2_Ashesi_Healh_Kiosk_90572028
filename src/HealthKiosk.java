@@ -4,4 +4,7 @@
 // DESCRIPTION: THIS CODE IS TO HELP ASHESI UNIVERSITY'S HEALTH CENTER PILOT A TINY SELF SERVICE INTAKE KIOSK
 
 public class HealthKiosk {
+    public static void main(String[] args) {
+
+    }
 }
