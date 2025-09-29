@@ -110,6 +110,25 @@ public class HealthKiosk {
             }
 
 
+            // TASK 3
+            // generating a random letter and four random numbers to create a short code
+            randomLetter = (char)  ('A' + (int) (Math.random() * 26));
+            number1 = (int) (Math.random() * (9 - 3 + 1) + 3);
+            number2 = (int) (Math.random() * (9 - 3 + 1) + 3);
+            number3 = (int) (Math.random() * (9 - 3 + 1) + 3);
+            number4 = (int) (Math.random() * (9 - 3 + 1) + 3);
 
-    }
+            ID = "" + randomLetter + number1 + number2 + number3 + number4;
+
+            if (ID.length()==5 && Character.isLetter(ID.charAt(0)) && Character.isDigit(ID.charAt(1)) && Character.isDigit(ID.charAt(2)) && Character.isDigit(ID.charAt(3)) && Character.isDigit(ID.charAt(4))) {
+                System.out.println("ID OK");
+            }else{
+                System.out.println("Invalid: first char must be a letter, the last four must be digits and the length must be 5");
+            }
+
+
+
+
+
+        }
 }
