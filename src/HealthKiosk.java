@@ -50,5 +50,25 @@ public class HealthKiosk {
         }
 
 
+        // switch case to determine which desk user should go
+        switch (kindOfService) {
+            case 'P':
+                System.out.print(" Go to: Pharmacy Desk ");
+                break;
+            case 'L':
+                System.out.print(" Go to: Lab Desk ");
+                break;
+            case 'T':
+                System.out.print(" Go to: Triage Desk ");
+                break;
+            case 'C':
+                System.out.print(" Go to: Counselling Desk ");
+                break;
+            default:
+                System.out.print("Invalid service code");
+        }
+
+
+
     }
 }
