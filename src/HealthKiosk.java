@@ -69,6 +69,47 @@ public class HealthKiosk {
         }
 
 
+        if (service == 'T') {
+            System.out.println("Enter health metric:");
+            healthMetric = input.nextInt();
+
+            if (healthMetric == 1) {
+                // asking user to enter weight and height to calculate BMI
+                System.out.println("Enter your weight in kilograms");
+                weight = input.nextDouble();
+                System.out.println("Enter your height in meters");
+                height = input.nextDouble();
+
+                bmi = weight / (Math.pow(height, 2));
+
+                // determining category based on BMI
+                if (bmi < 18.5) {
+                    Category = "Underweight";
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                    Category = "Normal";
+                } else if (bmi >= 25.0 && bmi <= 29.9) {
+                    Category = "Overweight";
+                } else if (bmi >= 30) {
+                    Category = "Obese";
+                }
+            } else if (healthMetric == 2) {
+                // determine dosage round up
+                System.out.println("Enter the required dosage (mg)");
+                dosage = input.nextDouble();
+
+                tablets = (int) Math.ceil(dosage / 250);
+                System.out.println("You need " + tablets + " tablet(s)");
+
+            } else if (healthMetric == 3) {
+                System.out.println("Enter angle in degrees");
+                angle = input.nextDouble();
+
+                convertAngle = Math.toRadians(angle);
+                convertAngle = Math.round(convertAngle * 1000) / 1000.0;
+
+            }
+
+
 
     }
 }
