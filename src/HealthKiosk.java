@@ -33,6 +33,7 @@ public class HealthKiosk {
         double roundedAngle;
         double sinOfAngle;
         double cosOfAngle;
+        double roundedBmi;
 
         // displaying a short welcome line to the user
         System.out.println("Welcome to Health Kiosk");
@@ -77,7 +78,8 @@ public class HealthKiosk {
         }
 
 
-        if (service == 'T') {
+        // the process a user goes through after choosing 'T'
+        if (kindOfService == 'T') {
             System.out.println("  ");
             System.out.println("Enter health metric:");
             healthMetric = input.nextInt();
@@ -90,7 +92,7 @@ public class HealthKiosk {
                 height = input.nextDouble();
 
                 bmi = weight / (Math.pow(height, 2));
-                bmi = Math.round(bmi * 10.0) / 10.0;
+
 
                 // determining category based on BMI
                 if (bmi < 18.5) {
@@ -102,8 +104,9 @@ public class HealthKiosk {
                 } else if (bmi >= 30) {
                     Category = "Obese";
                 }
-                System.out.println("BMI : " + bmi + "| Category" + Category);
-                metric=Math.round(bmi);
+                System.out.println("BMI : " + bmi + "| Category: " + Category);
+                metric=Math.round((float)bmi);
+                roundedBmi = Math.round(bmi *10)/10.0;
 
             } else if (healthMetric == 2) {
                 // determine dosage round up
