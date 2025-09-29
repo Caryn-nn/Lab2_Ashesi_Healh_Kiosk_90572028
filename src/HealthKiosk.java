@@ -29,6 +29,10 @@ public class HealthKiosk {
         String firstName;
         char baseCode;
         char shiftedLetter;
+        long metric =0;
+
+        // displaying a short welcome line to the user
+        System.out.println("Welcome to Health Kiosk");
 
 
         //Task 1
@@ -92,6 +96,9 @@ public class HealthKiosk {
                 } else if (bmi >= 30) {
                     Category = "Obese";
                 }
+
+                metric=Math.round(bmi);
+
             } else if (healthMetric == 2) {
                 // determine dosage round up
                 System.out.println("Enter the required dosage (mg)");
@@ -99,6 +106,7 @@ public class HealthKiosk {
 
                 tablets = (int) Math.ceil(dosage / 250);
                 System.out.println("You need " + tablets + " tablet(s)");
+                metric=Math.round(tablets);
 
             } else if (healthMetric == 3) {
                 System.out.println("Enter angle in degrees");
@@ -106,8 +114,10 @@ public class HealthKiosk {
 
                 convertAngle = Math.toRadians(angle);
                 convertAngle = Math.round(convertAngle * 1000) / 1000.0;
+                metric=(int)convertAngle;
 
             }
+
 
 
             // TASK 3
@@ -135,10 +145,16 @@ public class HealthKiosk {
             input.nextLine();
             firstName = input.nextLine();
 
-            char baseCode = Character.toUpperCase(firstName.charAt(0));
-            char shiftedLetter = (char) ('A' + (baseCode - 'A' + 2) % 26);
+            baseCode = Character.toUpperCase(firstName.charAt(0));
+            shiftedLetter = (char) ('A' + (baseCode - 'A' + 2) % 26);
             String lastTwo = ID.substring(ID.length() - 2);
-            String Code = shiftedLetter + lastTwo + "-";
+            String Code = shiftedLetter + lastTwo + "-" + metric;
+
+
+            //TASK 5
+            // Printing final summary
+            System.out.println("Summary: " + summary + " | ID: " + ID + " | Code: " + Code);
+
 
 
 
