@@ -12,7 +12,7 @@ public class HealthKiosk {
         char kindOfService;
         double weight;
         double height;
-        double bmi;
+        double bmi= 0;
         String Category = "";
         double dosage;
         int healthMetric;
@@ -30,6 +30,9 @@ public class HealthKiosk {
         char baseCode;
         char shiftedLetter;
         long metric =0;
+        double roundedAngle;
+        double sinOfAngle;
+        double cosOfAngle;
 
         // displaying a short welcome line to the user
         System.out.println("Welcome to Health Kiosk");
@@ -85,6 +88,7 @@ public class HealthKiosk {
                 height = input.nextDouble();
 
                 bmi = weight / (Math.pow(height, 2));
+                bmi = Math.round(bmi * 10.0) / 10.0;
 
                 // determining category based on BMI
                 if (bmi < 18.5) {
@@ -96,7 +100,7 @@ public class HealthKiosk {
                 } else if (bmi >= 30) {
                     Category = "Obese";
                 }
-
+                System.out.println("BMI : " + bmi + "| Category" + Category);
                 metric=Math.round(bmi);
 
             } else if (healthMetric == 2) {
@@ -113,8 +117,13 @@ public class HealthKiosk {
                 angle = input.nextDouble();
 
                 convertAngle = Math.toRadians(angle);
-                convertAngle = Math.round(convertAngle * 1000) / 1000.0;
-                metric=(int)convertAngle;
+                roundedAngle =  Math.round( convertAngle * 1000) / 1000.0;
+                sinOfAngle=Math.sin(roundedAngle);
+                cosOfAngle=Math.cos(roundedAngle);
+                System.out.printf("Angle (radians): %.3f%n", roundedAngle);
+                System.out.printf("sin = %.3f%n", sinOfAngle);
+                System.out.printf("cos = %.3f%n", cosOfAngle);
+                metric=Math.round((float)sinOfAngle*100);
 
             }
 
@@ -153,8 +162,11 @@ public class HealthKiosk {
 
             //TASK 5
             // Printing final summary
-            System.out.println("Summary: " + summary + " | ID: " + ID + " | Code: " + Code);
-
+            if(kindOfService=='T') {
+                System.out.println("Summary: " + summary + " | ID: " + ID + " | BMI: " + bmi + "| Code: " + Code);
+            }else{
+                System.out.println("Summary: " + summary + " | ID: " + ID + " | Code: " + Code);
+            }
 
 
 
