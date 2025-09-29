@@ -36,6 +36,7 @@ public class HealthKiosk {
 
         // displaying a short welcome line to the user
         System.out.println("Welcome to Health Kiosk");
+        System.out.println(" ");
 
 
         //Task 1
@@ -77,6 +78,7 @@ public class HealthKiosk {
 
 
         if (service == 'T') {
+            System.out.println("  ");
             System.out.println("Enter health metric:");
             healthMetric = input.nextInt();
 
@@ -163,8 +165,10 @@ public class HealthKiosk {
             //TASK 5
             // Printing final summary
             if(kindOfService=='T') {
+                System.out.println("  ");
                 System.out.println("Summary: " + summary + " | ID: " + ID + " | BMI: " + bmi + "| Code: " + Code);
             }else{
+                System.out.println("  ");
                 System.out.println("Summary: " + summary + " | ID: " + ID + " | Code: " + Code);
             }
 
